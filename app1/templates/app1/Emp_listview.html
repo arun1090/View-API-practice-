@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>Employee details based on class based view</h1>
+</head>
+<body>
+    <table border=2>
+		<tr>
+			<th>Firstname</th>
+			<th>Emp_id</th>
+			<th>Dateofbirth</th>
+			<th>Summery</th>
+		</tr>
+        {% for list_emp1 in object_list %}
+        <tr>
+			<td>{{list_emp1.Firstname}}</td>
+			<td>{{list_emp1.Emp_id}}</td>
+			<td>{{list_emp1.Dateofbirth}}</td>
+			<td>{{list_emp1.Summery}}</td>
+			<td>
+				<form method="put" >
+	<!--			<form method="put" action="/empBCBV/{{list_emp1.id}}">
+					<input type="hidden" name="_method" value="put" />    -->
+				<a href="/empBCBV/{{list_emp1.Emp_id}}">UPDATE</a>
+				<a href="/empBCBV/{{list_emp1.Emp_id}}">DELETE</a>
+				</form>
+			</td>
+        </tr>
+        {% endfor %}
+</body>
+</html>
